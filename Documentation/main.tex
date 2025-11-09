@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\geometry{a4paper, margin=1in}
+\begin{document}
+\begin{center}
+\textbf{\LARGE AI-powered Forex Trading Analysis Bot}
+
+\vspace{1cm}
+\textbf{\large CSC-225: Software Engineering}
+
+\vspace{1cm}
+\textbf{Team Members:} \\
+Member 1: Saad Nawaz, NUM-BSCS-2024-67  \\
+Member 2: Shahbaz Ali, NUM-BSCS-2024-73 \\ 
+Member 3: Hafsa Gul, NUM-BSCS-2024-24
+
+\vspace{1.5cm}
+\textbf{Department of Computer Science} \\
+\textbf{Namal University, Mianwali}
+
+\vspace{1cm}
+\textbf{Submission Date: Sunday 2\textsuperscript{nd} November, 2025}
+\end{center}
+\thispagestyle{empty}
+\newpage
+
+
+
+
+% ===== 
+\section*{Requirement Provider Agreement}
+
+This document confirms that the student team of Course CSC-225 Software Engineering has officially selected Mr. Mudassir Ahmad Khan as the Requirement Provider (RP) for the project titled *“Prototype Design for an AI-powered Forex Trading Analysis Bot.”* The team agrees that the RP will guide them by providing real-world requirements, reviewing major deliverables, and validating the scope of the project when needed.
+
+The RP has mutually agreed to support the team with requirement clarification and domain-related input throughout the project duration.
+
+\vspace{1cm}
+
+\begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
+\textbf{Requirement Provider} & \textbf{Student Team} \\
+\\
+Name: Mudassir Ahmad Khan & Saad Nawaz \\
+\includegraphics[width=4cm]{signature (3).png} & \includegraphics[width=4cm]{signature (2).png}\\
+
+
+& Shahbaz Ali \\
+& \includegraphics[width=4cm]{signature (1).png} \\
+\\
+& Hafsa Gul \\
+&  \includegraphics[width=4cm]{signature.png} \\
+\\
+Date: Nov 07, 2025 \\
+\end{tabular}
+
+\thispagestyle{empty}
+\newpage
+
+
+% ===== 
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+% =====
+\section{Introduction}
+Foreign exchange markets (Forex) are highly liquid and operate 24/5. Traders use a
+ mix of fundamental and technical analysis to determine the likely direction of the price. However, manual analysis is time-consuming and challenging, especially for novice traders who may struggle to combine multiple
+ signals effectively. 
+
+This project proposes the development of an AI-powered Forex Trading Analysis Bot, which aims to simplify and automate the analysis process. The system will integrate technical indicators, summarize relevant fundamental data, and provide multi-timeframe directional suggestions (e.g., “major timeframe likely to move up; minor timeframe likely to move down”). Users will also have the flexibility to apply their own analysis tools and customize indicators according to their strategies.
+
+The background for this project comes from the observation of the challenges faced by retail traders in effectively analyzing market data and making timely decisions. The proposed system will help bridge the gap between complex financial analysis and practical trading decisions, making sophisticated analysis accessible to a wider range of traders while providing explanations for its recommendations.
+
+
+\section{Problem Statement}
+Current traders, especially beginners and intermediate users, face several challenges when navigating the Forex market:
+
+\begin{itemize}
+    \item \textbf{Fragmented analysis:} Technical indicators, chart patterns, and fundamental events are often scattered across multiple tools and platforms. Traders must manually collect, compare and interpret data from different sources, which is inefficient and prone to errors.
+    
+    \item \textbf{Time-consuming manual work:} Combining multiple timeframes and indicators manually is slow and error prone.
+    
+    \item \textbf{Lack of Explainability:} Many existing automated trading systems operate as "black boxes," providing signals without clear explanations. Traders are unable to understand the reasoning behind the signals.
+    
+    \item \textbf{Customization Need:}  Experienced traders want to test and apply their own strategies and indicator combinations. Most current tools offer limited flexibility, which prevents personalized analysis.
+
+    \item \textbf{Information Overload:}  With constant updates in market data, news and economic events, traders can feel overwhelmed and confused. This can lead to inconsistent trading decisions, impacting profitability and confidence.
+\end{itemize}
+
+\textbf{Goal:} Build a prototype that (1) automates multi-timeframe technical and fundamental analysis, (2) offers an AI-assisted analysis mode, (3) allows users to apply their own
+ tools/techniques, and (4) provides actionable, explainable buy/sell directional suggestions.
+
+
+\section{Project Objectives}
+The main objective of this project is to design a prototype for an AI-powered Forex Trading Analysis Bot that assists traders in making informed decisions. The project will achieve the following measurable objectives:
+
+\begin{enumerate}
+    \item \textbf{Data Integeration:} Collect historical and live Forex price data and relevant economic calendar events via at least one public API.
+    
+    \item \textbf{Technical Analysis Engine:} Implement a modular technical indicator engine capable of computing commonly used indicators such as moving averages (SMA, EMA), Relative Strength Index (RSI), MACD, pivot points, and support/resistance levels. The engine should be able to operate across multiple timeframes. 
+    
+    \item \textbf{AI Analysis Mode:} Implement an explainable AI model (based on classification or regression) that suggests directional market bias for selected instruments and timeframes. The model should also provide information about the importance of features to explain why a particular signal or prediction was generated.
+
+    \item \textbf{User Customization:} Provide a user interface to let traders apply their own indicators/thresholds, and test strategies. Users should be able to compare their personalized signals with AI-generated suggestions.
+
+    \item \textbf{Prototype UI and Reporting:} Deliver a simple web-based interface displaying selected charts, analysis results, multi-timeframe directional suggestions, and exportable reports.
+
+\end{enumerate}
+
+
+\section{Stakeholder Identification}
+
+\begin{itemize}
+    \item \textbf{End Users (Traders):} Retail traders using the tool for decision support.
+    
+    \item \textbf{Requirement Provider:} Domain expert providing requirements, guidance and feedback.
+    
+    \item \textbf{Development Team:} Project team responsible for design, implementation, and documentation.
+    
+    \item \textbf{Instructors/Evaluators:} Faculty members who assess milestone submissions, evaluate the prototype, and provide academic feedback.
+    
+    \item \textbf{Third-party API Providers:} External services that supply live and historical Forex price data, as well as economic calendar information (e.g., OANDA, Alpha Vantage). These APIs are essential for data integration and analysis functionality.
+\end{itemize}
+
+% ===== 8. Software Development Methodology =====
+\section{Software Development Methodology}
+
+\subsection{Chosen Methodology: Agile with Scrum Framework}
+The Agile Scrum-Style methodology has been selected for this project due to its suitability for projects with evolving requirements and the need for stakeholder feedback from time to time.Scrum-style two-week sprints will enable continuous integration of features and regular demos. 
+
+This approach is appropriate because:
+
+\begin{itemize}
+    \item Requirements may change as the team gain deeper understanding of trading domain complexities.
+    \item Frequent feedback from the Requirement Provider is essential for ensuring the system meets real-world needs.
+    
+    \item Regular sprint reviews allow the team to adapt to changing priorities and improve the system.
+\end{itemize}
+
+\subsection{High-level 1-Year Schedule}
+Assuming a 12-month timeline using two-week sprints (approx. 26 sprints per year). Key milestones for each quarter are as follows:
+
+\begin{itemize}
+    \item Project setup, RP onboarding, requirement refinement, initial data collection, basic technical indicators, simple UI mockups.
+    \item Expand indicator library, multi-timeframe analysis, initial AI experiments, basic data storage setup.
+    \item Develop AI model(s), add basic explanations for AI outputs, enable simple user customization features.
+    \item Combine all components, do testing with RP, complete documentation, prepare demo version.
+\end{itemize}
+
+\subsection{Sprint-level Plan (tentative)}
+
+\begin{tabular}{|p{1.5cm}|p{5cm}|p{8cm}|}
+\hline
+\textbf{Sprint} & \textbf{Focus} & \textbf{Deliverable} \\
+\hline
+1 & Project initiation & Sign RP agreement, create project repo, schedule first meetings \\
+\hline
+2 & Data collection & Connect to one Forex API, collect sample historical data \\
+\hline
+3 & Basic indicators & Implement SMA, EMA, RSI, MACD for one timeframe \\
+\hline
+4 & Multi-timeframe engine & Run indicators on 4H, 1H, 15m; prepare simple UI mockup \\
+\hline
+5 & Backtesting setup &Simple backtester for indicator signals on historical data \\
+\hline
+6 & Feature engineering & Create features for AI: indicators, price deltas, volatility) \\
+\hline
+7 & Baseline AI model & Train simple classifier/regressor (logistic regression or decision tree) \\
+\hline
+8 & Explainability & Add simple explanations for AI predictions (e.g., feature importance) \\
+\hline
+9 & User customization & Allow users to input own indicators and thresholds in UI \\
+\hline
+10 & Integration & Combine AI outputs and user-defined signals in single view \\
+\hline
+11 & Evaluation & Test on sample data, get feedback from RP, note improvements \\
+\hline
+12 & Demo Prototype & Prepare working prototype for instructor demo, update documentation \\
+\hline
+\end{tabular}
+
+
+
+
+
+\section{Tools and Technologies}
+
+\textbf{Languages:} Python (for backend and AI model) and JavaScript/TypeScript (for frontend).
+
+\textbf{Backend frameworks/libraries:}
+\begin{itemize}
+    \item FastAPI or Flask for creating backend APIs.
+    \item Pandas and NumPy for data processing and calculations.
+    \item TA-Lib or simple Python code for technical indicators (SMA, EMA, RSI, MACD, etc.).
+    \item scikit-learn, XGBoost, or PyTorch/TensorFlow for AI models.
+    \item SHAP or basic explainability methods to show reasons behind AI predictions.
+\end{itemize}
+
+\textbf{Frontend:}
+\begin{itemize}
+    \item React (or simple server-rendered pages) for the user interface.
+    \item Plotly.js or TradingView lightweight charts to display Forex data and analysis.
+\end{itemize}
+
+\textbf{Data / APIs:}
+\begin{itemize}
+    \item Forex price APIs such as OANDA, Alpha Vantage, or other free exchange rate APIs.
+    \item Economic calendar and news data via events APIs or trusted websites.
+\end{itemize}
+
+\textbf{Storage:}
+\begin{itemize}
+    \item PostgreSQL or SQLite for storing data, plus CSV files.
+\end{itemize}
+
+\textbf{DevOps / Repository:}
+\begin{itemize}
+    \item GitHub repository with structured folders: \texttt{Documentaion/}, \texttt{Meeting\_Minutes/}, \texttt{Readme.md/}, \texttt{Meeting\_Videos/}.
+\end{itemize}
+
+\section{AI Analysis and Evaluation}
+The system will use AI to analyze Forex market data. It will take inputs like indicator values from different timeframes, price history, volatility, and important economic events. The AI will give a simple directional signal for each timeframe (UP, NEUTRAL, or DOWN) along with a confidence score. If possible, more advanced models like LSTM or CNN may be used on time-series data.
+
+The AI will also provide explanations in simple terms, so users can understand why a certain signal is suggested.
+
+To evaluate the system:
+\begin{itemize}
+    \item We will check how accurate the AI predictions are using past market data.
+    \item Feedback from the Requirement Provider will be used to assess usefulness, clarity, and trust in the signals.
+    \item We will also consider how easy it is for users to apply their own tools and interpret AI explanations.
+\end{itemize}
+
+To reduce risks:
+\begin{itemize}
+    \item Backup data sources will be used if any API fails, and caching will help avoid limits.
+    \item AI models will be carefully trained to avoid overfitting and lookahead bias.
+\end{itemize}
+
+\section{References}
+\begin{enumerate}
+    \item Requirement Provider (RP), personal communication, Nov. 2025.  
+    \item Team discussions, personal communication, Nov. 2025.
+
+    \item Prompts used with AI (ChatGPT) for project planning, objectives review, AI model design, tool and technology guidance, and sprint scheduling, Nov. 2025.
+\end{enumerate}
+
+ 
+
+\end{document}
