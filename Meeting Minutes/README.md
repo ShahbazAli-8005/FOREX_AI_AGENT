@@ -1,0 +1,1 @@
+[Meetings Record](https://docs.google.com/spreadsheets/d/1qUoBNsJkF3v7-lJL_DHDRaJELK9NC0lXnAOKvBpVkdc/edit?usp=sharing)
